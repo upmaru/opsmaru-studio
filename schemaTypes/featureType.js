@@ -4,7 +4,22 @@ export const featureCategory = defineType({
   type: 'document',
   name: 'featureCategory',
   title: 'Feature Category',
-  fields: [defineField({type: 'string', name: 'name', title: 'Name'})],
+  fields: [
+    defineField({
+      type: 'number',
+      name: 'index',
+      title: 'Index',
+      description: 'The order in which the category should appear',
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'string',
+      name: 'name',
+      title: 'Name',
+      description: "Name of the category, e.g. 'Performance' or 'Security'",
+      validation: (e) => e.required(),
+    }),
+  ],
 })
 
 export const feature = defineType({
