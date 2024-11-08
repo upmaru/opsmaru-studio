@@ -1,7 +1,7 @@
 import {post} from './postType'
 import {product, productFeature} from './productType'
 import {feature, featureCategory} from './featureType'
-import {page, pageSection, pageSectionContent, pageFaq} from './pageType'
+import {page, pageSection, pageContent, pageFaq} from './pageType'
 import {faq} from './faqType'
 
 export const schemaTypes = [
@@ -10,7 +10,7 @@ export const schemaTypes = [
   product,
   page,
   pageSection,
-  pageSectionContent,
+  pageContent,
   pageFaq,
   productFeature,
   feature,

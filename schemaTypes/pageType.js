@@ -61,10 +61,10 @@ export const pageSection = defineType({
   ],
 })
 
-export const pageSectionContent = defineType({
+export const pageContent = defineType({
   type: 'document',
-  name: 'pageSectionContent',
-  title: 'Page Section Content',
+  name: 'pageContent',
+  title: 'Page Content',
   fields: [
     defineField({
       type: 'reference',
