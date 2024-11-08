@@ -38,7 +38,7 @@ export const feature = defineType({
       type: 'string',
       name: 'description',
       title: 'Description',
-      description: 'Describe the benefits of the feature',
+      description: 'Describe the benefits of the feature.',
       validation: (e) => e.required(),
     }),
     defineField({
@@ -46,6 +46,19 @@ export const feature = defineType({
       name: 'help',
       title: 'Help',
       description: 'Help text for the feature',
+    }),
+    defineField({
+      type: 'string',
+      name: 'display',
+      title: 'Display',
+      description: 'Which field to display.',
+      validation: (e) => e.required(),
+      options: {
+        list: [
+          {title: 'Status', value: 'active'},
+          {title: 'Remark', value: 'remark'},
+        ],
+      },
     }),
   ],
 })

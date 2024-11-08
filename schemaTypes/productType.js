@@ -56,7 +56,19 @@ export const productFeature = defineType({
       type: 'string',
       name: 'remark',
       title: 'Remark',
-      validation: (e) => e.required(),
     }),
   ],
+  preview: {
+    select: {
+      feature: 'feature.description',
+      product: 'product.name',
+    },
+    prepare(selection) {
+      const {feature, product} = selection
+      return {
+        title: feature,
+        subtitle: `Product: ${product ? product : 'unknown'}`,
+      }
+    },
+  },
 })
