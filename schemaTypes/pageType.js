@@ -129,3 +129,25 @@ export const pageFaq = defineType({
     },
   },
 })
+
+export const pageCard = defineType({
+  type: 'document',
+  name: 'pageCard',
+  title: 'Page Card',
+  fields: [
+    defineField({
+      type: 'reference',
+      name: 'pageSection',
+      title: 'Page Section',
+      to: [{type: 'pageSection'}],
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'reference',
+      name: 'card',
+      title: 'Card',
+      to: [{type: 'card'}],
+      validation: (e) => e.required(),
+    }),
+  ],
+})
