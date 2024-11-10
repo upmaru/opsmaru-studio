@@ -28,6 +28,20 @@ export const post = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
+      type: 'boolean',
+      name: 'featured',
+      title: 'Featured',
+      description: 'Is this a featured post?',
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'text',
+      name: 'blurb',
+      title: 'Blurb',
+      description: 'Blurb of the post',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'file',
       name: 'content',
       title: 'Content',
