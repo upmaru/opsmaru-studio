@@ -5,12 +5,14 @@ import {page, pageSection, pageContent, pageFaq, pageCard} from './pageType'
 import {faq} from './faqType'
 import {card} from './cardType'
 import {navigation, link} from './navigationType'
+import {person} from './personType'
 
 export const schemaTypes = [
   navigation,
   link,
   faq,
   post,
+  person,
   card,
   product,
   page,

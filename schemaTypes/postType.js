@@ -7,8 +7,9 @@ export const post = defineType({
   title: 'Post',
   fields: [
     defineField({
-      name: 'mainImage',
+      name: 'cover',
       type: 'image',
+      title: 'Cover',
       options: {
         hotspot: true,
       },
@@ -19,6 +20,14 @@ export const post = defineType({
           title: 'Alternative text',
         },
       ],
+    }),
+    defineField({
+      type: 'reference',
+      name: 'author',
+      title: 'Author',
+      description: 'Author of the post',
+      to: [{type: 'person'}],
+      validation: (e) => e.required(),
     }),
     defineField({
       type: 'string',
