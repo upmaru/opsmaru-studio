@@ -1,4 +1,4 @@
-import {post} from './postType'
+import {post, postCategory} from './postType'
 import {product, productFeature} from './productType'
 import {feature, featureCategory} from './featureType'
 import {page, pageSection, pageContent, pageFaq, pageCard} from './pageType'
@@ -12,6 +12,7 @@ export const schemaTypes = [
   link,
   faq,
   post,
+  postCategory,
   person,
   card,
   product,

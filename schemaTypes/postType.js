@@ -1,6 +1,33 @@
 import {defineField, defineType} from 'sanity'
 import {isUniqueAcrossAllDocuments} from '../lib/slugIsUnique'
 
+export const postCategory = defineType({
+  type: 'document',
+  name: 'postCategory',
+  title: 'Post Category',
+  fields: [
+    defineField({
+      type: 'string',
+      name: 'name',
+      title: 'Name',
+      description: "Name of the category, e.g. 'Performance' or 'Security'",
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'slug',
+      name: 'slug',
+      title: 'Slug',
+      description: 'Url friendly name',
+      validation: (e) => e.required(),
+      options: {
+        source: 'name',
+        maxLength: 200, // will be ignored if slugify is set
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+    })
+  ]
+})
+
 export const post = defineType({
   type: 'document',
   name: 'post',
@@ -20,6 +47,13 @@ export const post = defineType({
           title: 'Alternative text',
         },
       ],
+    }),
+    defineField({
+      type: 'array',
+      name: 'categories',
+      title: 'Categories',
+      of: [{ type: 'reference', to: { type: 'postCategory' } }],
+      validation: (e) => e.required(),
     }),
     defineField({
       type: 'reference',
