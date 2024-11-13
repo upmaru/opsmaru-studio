@@ -6,6 +6,8 @@ import {faq} from './faqType'
 import {card} from './cardType'
 import {navigation, link} from './navigationType'
 import {person} from './personType'
+import {logo} from './logoType'
+import {movie} from './movieType'
 
 export const schemaTypes = [
   navigation,
@@ -16,6 +18,8 @@ export const schemaTypes = [
   person,
   card,
   product,
+  logo,
+  movie,
   page,
   pageSection,
   pageContent,

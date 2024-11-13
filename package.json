@@ -23,6 +23,7 @@
     "sanity": "^3.63.0",
     "sanity-plugin-markdown": "^5.0.0",
     "sanity-plugin-media": "^2.3.2",
+    "sanity-plugin-mux-input": "^2.3.6",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {media} from 'sanity-plugin-media'
 import {markdownSchema} from 'sanity-plugin-markdown'
+import {muxInput} from 'sanity-plugin-mux-input'
 
 export default defineConfig({
   name: 'default',
@@ -12,7 +13,7 @@ export default defineConfig({
   projectId: 'gyrrgtvc',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool(), media(), markdownSchema()],
+  plugins: [structureTool(), visionTool(), media(), markdownSchema(), muxInput()],
 
   schema: {
     types: schemaTypes,
