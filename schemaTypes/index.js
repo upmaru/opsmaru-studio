@@ -8,6 +8,7 @@ import {navigation, link} from './navigationType'
 import {person} from './personType'
 import {logo} from './logoType'
 import {movie} from './movieType'
+import {slide} from './slideType'
 
 export const schemaTypes = [
   navigation,
@@ -20,6 +21,7 @@ export const schemaTypes = [
   product,
   logo,
   movie,
+  slide,
   page,
   pageSection,
   pageContent,
