@@ -27,6 +27,13 @@ export const slide = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
+      type: 'string',
+      name: 'subtitle',
+      title: 'Subtitle',
+      description: 'The subtitle of the slide',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'number',
       name: 'index',
       title: 'Index',
