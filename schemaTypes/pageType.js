@@ -171,12 +171,13 @@ export const pageCard = defineType({
     select: {
       section: 'pageSection.title',
       card: 'card.title',
+      position: 'position'
     },
     prepare(selection) {
-      const {section, card} = selection
+      const {card, position} = selection
       return {
         title: card,
-        subtitle: `Section: ${section ? section : 'unknown'}`,
+        subtitle: `Position: ${position ? position : 'unknown'}`,
       }
     },
   },
