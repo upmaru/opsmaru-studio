@@ -150,4 +150,17 @@ export const pageCard = defineType({
       validation: (e) => e.required(),
     }),
   ],
+  preview: {
+    select: {
+      section: 'pageSection.title',
+      card: 'card.title',
+    },
+    prepare(selection) {
+      const {section, card} = selection
+      return {
+        title: card,
+        subtitle: `Section: ${section ? section : 'unknown'}`,
+      }
+    },
+  },
 })
