@@ -149,6 +149,23 @@ export const pageCard = defineType({
       to: [{type: 'card'}],
       validation: (e) => e.required(),
     }),
+    defineField({
+      type: 'string',
+      name: 'position',
+      title: 'Position',
+      description: 'Position of the card',
+      validation: (e) => e.required(),
+      options: {
+        list: [
+          {title: 'Top Left', value: 'top-left'},
+          {title: 'Top Center', value: 'top-center'},
+          {title: 'Top Right', value: 'top-right'},
+          {title: 'Bottom Left', value: 'bottom-left'},
+          {title: 'Bottom Center', value: 'bottom-center'},
+          {title: 'Bottom Right', value: 'bottom-right'}
+        ],
+      },
+    })
   ],
   preview: {
     select: {
