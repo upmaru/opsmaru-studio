@@ -24,7 +24,10 @@ export const card = defineType({
       title: 'Hook',
       description: 'The phx-hook of the card',
       options: {
-        list: [{title: 'Broadcast', value: 'MountBroadcast'}],
+        list: [
+          {title: 'Broadcast', value: 'MountBroadcast'},
+          {title: 'Technologies', value: 'MountTechnologies'},
+        ],
       },
     }),
     defineField({
