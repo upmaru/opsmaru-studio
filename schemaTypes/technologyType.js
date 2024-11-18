@@ -48,6 +48,7 @@ export const technology = defineType({
           {title: 'Framework', value: 'framework'},
           {title: 'Database', value: 'database'},
           {title: 'Cloud', value: 'cloud'},
+          {title: 'Object Storage', value: 'object-storage'},
         ],
       },
     }),

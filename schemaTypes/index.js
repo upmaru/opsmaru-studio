@@ -10,6 +10,7 @@ import {logo} from './logoType'
 import {movie} from './movieType'
 import {slide} from './slideType'
 import {technology} from './technologyType'
+import {testimonial} from './testimonialType'
 
 export const schemaTypes = [
   navigation,
@@ -31,5 +32,6 @@ export const schemaTypes = [
   productFeature,
   feature,
   featureCategory,
-  technology
+  technology,
+  testimonial
 ]
