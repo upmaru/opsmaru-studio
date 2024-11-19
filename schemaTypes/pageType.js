@@ -22,7 +22,7 @@ export const page = defineType({
       options: {
         isUnique: isUniqueAcrossAllDocuments,
       },
-    }),
+    })
   ],
 })
 
@@ -86,6 +86,19 @@ export const pageContent = defineType({
       title: 'Body',
       description: 'The body of the content',
     }),
+    defineField({
+      type: 'file',
+      name: 'markdown',
+      title: 'Markdown',
+      description: 'The markdown content of the page',
+      accept: 'text/markdown'
+    }),
+    defineField({
+      type: 'date',
+      name: 'published_at',
+      title: 'Published at',
+      description: 'Publish the page at this date',
+    })
   ],
 })
 

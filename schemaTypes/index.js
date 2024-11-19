@@ -11,6 +11,7 @@ import {movie} from './movieType'
 import {slide} from './slideType'
 import {technology} from './technologyType'
 import {testimonial} from './testimonialType'
+import {course, courseCategory, courseChapter, courseEpisode} from './courseType'
 
 export const schemaTypes = [
   navigation,
@@ -18,6 +19,10 @@ export const schemaTypes = [
   faq,
   post,
   postCategory,
+  course,
+  courseCategory,
+  courseChapter,
+  courseEpisode,
   person,
   card,
   product,
