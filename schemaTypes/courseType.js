@@ -117,26 +117,84 @@ export const course = defineType({
   ]
 })
 
-export const courseChapter = defineType({
+export const courseSection = defineType({
   type: 'document',
-  name: 'courseChapter',
-  title: 'Course Chapter',
+  name: 'courseSection',
+  title: 'Course Section',
   fields: [
     defineField({
-      type: 'string',
-      name: 'name',
-      title: 'Name',
-      description: 'Name of the chapter',
+      type: 'reference',
+      name: 'course',
+      title: 'Course',
+      description: 'The Course to reference',
+      to: [{type: 'course'}],
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'reference',
+      name: 'chapter',
+      title: 'Chapter',
+      description: 'The Chapter to reference',
+      to: [{type: 'courseChapter'}],
       validation: (e) => e.required(),
     }),
     defineField({
       type: 'number',
       name: 'index',
       title: 'Index',
-      description: 'Chapter number',
+      description: 'Section number',
       validation: (e) => e.required(),
     })
-  ]
+  ],
+  preview: {
+    select: {
+      course: 'course.title',
+      chapter: 'chapter.title',
+    },
+    prepare(selection) {
+      const {course, chapter} = selection
+      return {
+        title: chapter,
+        subtitle: `Course: ${course ? course : 'unknown'}`,
+      }
+    },
+  },
+})
+
+export const courseChapter = defineType({
+  type: 'document',
+  name: 'courseChapter',
+  title: 'Course Chapter',
+  fields: [
+    defineField({
+      type: 'reference',
+      name: 'course',
+      title: 'Course',
+      description: 'The Course to reference',
+      to: [{type: 'course'}],
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'string',
+      name: 'title',
+      title: 'Title',
+      description: 'Title of the chapter',
+      validation: (e) => e.required(),
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      course: 'course.title',
+    },
+    prepare(selection) {
+      const {course, title} = selection
+      return {
+        title: title,
+        subtitle: `Course: ${course ? course : 'unknown'}`,
+      }
+    },
+  },
 })
 
 export const courseEpisode = defineType({
