@@ -72,6 +72,14 @@ export const course = defineType({
       ],
     }),
     defineField({
+      type: 'reference',
+      name: 'author',
+      title: 'Author',
+      description: 'Author of the episode',
+      to: [{type: 'person'}],
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'text',
       name: 'description',
       title: 'Description',
