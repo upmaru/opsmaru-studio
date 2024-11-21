@@ -28,5 +28,17 @@ export const person = defineType({
         },
       ],
     }),
+    defineField({
+      type: 'string',
+      name: 'title',
+      title: 'Title',
+      description: 'The title of the person',
+    }),
+    defineField({
+      type: 'text',
+      name: 'bio',
+      title: 'Bio',
+      description: 'The bio of the person'
+    })
   ],
 })

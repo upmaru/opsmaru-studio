@@ -72,6 +72,13 @@ export const course = defineType({
       ],
     }),
     defineField({
+      name: 'introduction',
+      title: 'Introduction',
+      description: 'Introduction video of the course',
+      type: 'mux.video',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'reference',
       name: 'author',
       title: 'Author',
