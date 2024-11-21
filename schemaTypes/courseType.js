@@ -13,6 +13,20 @@ export const courseCategory = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
+      type: 'string',
+      name: 'title',
+      title: 'Title',
+      description: 'Title of the category',
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'content',
+      name: 'description',
+      title: 'Description',
+      description: 'Description of the category',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'slug',
       name: 'slug',
       title: 'Slug',
@@ -30,6 +44,19 @@ export const courseCategory = defineType({
       title: 'Index',
       description: 'The index of the category',
       validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'string',
+      name: 'template',
+      title: 'Template',
+      description: 'The template of the category',
+      validation: (e) => e.required(),
+      options: {
+        list: [
+          {title: 'Two Column with main technology as cover', value: 'two-column-main-tech-cover'},
+          {title: 'Course cover with category description', value: 'course-cover-with-category-description'},
+        ],
+      },
     })
   ]
 })
