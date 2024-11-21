@@ -20,7 +20,7 @@ export const courseCategory = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
-      type: 'content',
+      type: 'text',
       name: 'description',
       title: 'Description',
       description: 'Description of the category',
