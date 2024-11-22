@@ -38,6 +38,14 @@ export const technology = defineType({
       },
     }),
     defineField({
+      type: 'file',
+      name: 'content',
+      title: 'Content',
+      description: 'The markdown content of the episode',
+      accept: 'text/markdown',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'string',
       name: 'type',
       title: 'Tech Type',
