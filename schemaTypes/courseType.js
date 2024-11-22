@@ -272,6 +272,12 @@ export const courseEpisode = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
+      type: 'array',
+      name: 'technologies',
+      title: 'Technologies',
+      of: [{ type: 'reference', to: { type: 'technology' } }],
+    }),
+    defineField({
       name: 'video',
       title: 'Video',
       description: 'Video of the episode',
