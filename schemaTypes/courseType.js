@@ -20,6 +20,13 @@ export const courseCategory = defineType({
       validation: (e) => e.required(),
     }),
     defineField({
+      type: 'boolean',
+      name: 'featured',
+      title: 'Featured',
+      description: 'Category featured?',
+      validation: (e) => e.required(),
+    }),
+    defineField({
       type: 'text',
       name: 'description',
       title: 'Description',
@@ -55,7 +62,7 @@ export const courseCategory = defineType({
         list: [
           {title: 'Two Column with main technology as cover', value: 'two-column-main-tech-cover'},
           {title: 'Course cover with category description', value: 'course-cover-with-category-description'},
-          {title: 'Course playlist with side quote', value: 'course-playlist-with-side-quote'}
+          {title: 'Full width with course cover', value: 'full-width-with-course-cover'}
         ],
       },
     })
