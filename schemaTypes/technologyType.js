@@ -49,6 +49,7 @@ export const technology = defineType({
           {title: 'Database', value: 'database'},
           {title: 'Cloud', value: 'cloud'},
           {title: 'Object Storage', value: 'object-storage'},
+          {title: 'Hypervisor', value: 'hypervisor'},
         ],
       },
     }),
