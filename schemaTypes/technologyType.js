@@ -42,8 +42,7 @@ export const technology = defineType({
       name: 'content',
       title: 'Content',
       description: 'The markdown content of the episode',
-      accept: 'text/markdown',
-      validation: (e) => e.required(),
+      accept: 'text/markdown'
     }),
     defineField({
       type: 'string',
