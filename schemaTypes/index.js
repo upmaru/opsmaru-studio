@@ -9,7 +9,7 @@ import {person} from './personType'
 import {logo} from './logoType'
 import {movie} from './movieType'
 import {slide} from './slideType'
-import {technology} from './technologyType'
+import {technology, technologyCategory} from './technologyType'
 import {testimonial} from './testimonialType'
 import {course, courseSection, courseCategory, courseChapter, courseEpisode} from './courseType'
 
@@ -39,5 +39,6 @@ export const schemaTypes = [
   feature,
   featureCategory,
   technology,
+  technologyCategory,
   testimonial
 ]

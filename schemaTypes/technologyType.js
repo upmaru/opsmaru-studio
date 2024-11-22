@@ -1,5 +1,32 @@
 import {defineField, defineType} from 'sanity'
 
+export const technologyCategory = defineType({
+  type: 'document',
+  name: 'technologyCategory',
+  title: 'Technology Category',
+  fields: [
+    defineField({
+      type: 'string',
+      name: 'name',
+      title: 'Name',
+      description: 'The title of the category',
+      validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'slug',
+      name: 'slug',
+      title: 'Slug',
+      description: 'Url friendly name',
+      validation: (e) => e.required(),
+      options: {
+        source: 'name',
+        maxLength: 200, // will be ignored if slugify is set
+        slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
+    }),
+  ],
+})
+
 export const technology = defineType({
   type: 'document',
   name: 'technology',
@@ -45,21 +72,12 @@ export const technology = defineType({
       accept: 'text/markdown'
     }),
     defineField({
-      type: 'string',
-      name: 'type',
-      title: 'Tech Type',
+      type: 'reference',
+      name: 'category',
+      title: 'Category',
+      description: 'Category of the tech',
+      to: [{type: 'technologyCategory'}],
       validation: (e) => e.required(),
-      options: {
-        list: [
-          {title: 'Language', value: 'language'},
-          {title: 'Framework', value: 'framework'},
-          {title: 'Database', value: 'database'},
-          {title: 'Cloud', value: 'cloud'},
-          {title: 'Object Storage', value: 'object-storage'},
-          {title: 'Hypervisor', value: 'hypervisor'},
-          {title: 'Infrastructure as Code', value: 'infrastructure-as-code'},
-        ],
-      },
-    }),
+    })
   ],
 })
