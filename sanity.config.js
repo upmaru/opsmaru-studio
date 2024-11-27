@@ -7,6 +7,25 @@ import {markdownSchema} from 'sanity-plugin-markdown'
 import {muxInput} from 'sanity-plugin-mux-input'
 import {crossDatasetDuplicator} from '@sanity/cross-dataset-duplicator'
 
+const duplicatableTypes = [
+  'navigation',
+  'page', 
+  'pageSection', 
+  'pageFaq', 
+  'pageContent', 
+  'pageCard',
+  'card', 
+  'post', 
+  'product',
+  'productFeature',
+  'postCategory',
+  'person',
+  'technology',
+  'testimonial',
+  'feature',
+  'featureCategory'
+]
+
 export default defineConfig([{
   name: 'Live',
   title: 'Live',
@@ -21,7 +40,7 @@ export default defineConfig([{
     markdownSchema(), 
     muxInput(),
     crossDatasetDuplicator({
-      types: ['page', 'post', 'product', 'postCategory', 'person'],
+      types: duplicatableTypes,
       tool: true
     })
   ],
@@ -41,7 +60,11 @@ export default defineConfig([{
     visionTool(), 
     media(), 
     markdownSchema(), 
-    muxInput()
+    muxInput(),
+    crossDatasetDuplicator({
+      types: duplicatableTypes,
+      tool: true
+    })
   ],
 
   schema: {
