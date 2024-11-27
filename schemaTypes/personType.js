@@ -33,6 +33,7 @@ export const person = defineType({
       name: 'title',
       title: 'Title',
       description: 'The title of the person',
+      validation: (e) => e.required()
     }),
     defineField({
       type: 'text',
