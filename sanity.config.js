@@ -17,6 +17,10 @@ const duplicatableTypes = [
   'card', 
   'post', 
   'product',
+  'course',
+  'courseSection',
+  'courseChapter',
+  'courseEpisode',
   'productFeature',
   'postCategory',
   'person',
@@ -33,6 +37,44 @@ export default defineConfig([{
   dataset: 'production',
   basePath: '/live',
 
+  document: {
+    productionUrl: async (prev, context) => {
+      const {getClient, dataset, document} = context
+      const client = getClient({apiVersion: '2023-05-31'})
+
+      if (document._type === 'post') { 
+        const slug = await client.fetch(
+          `*[_type == 'post' && _id == $post_id][0].slug.current`,
+          {post_id: document._id}
+        )
+
+        return `https://preview.opsmaru.com/blog/${slug}`
+      }
+
+      if (document._type === 'course') {
+        const slug = await client.fetch(
+          `*[_type == 'course' && _id == $course_id][0].slug.current`,
+          {course_id: document._id}
+        )
+
+        return `https://preview.opsmaru.com/how-to/${slug}`
+      }
+
+      if (document._type === 'courseEpisode') {
+        const episode = await client.fetch(
+          `*[_type == 'courseEpisode' && _id == $episode_id][0] { 
+            ...,
+            chapter -> {..., course -> {...}}
+          }`,
+          {episode_id: document._id}
+        )
+
+        return `https://preview.opsmaru.com/how-to/${episode.chapter.course.slug.current}/${episode.slug.current}`
+      }
+
+      return prev
+    }
+  },
   plugins: [
     structureTool(), 
     visionTool(), 
