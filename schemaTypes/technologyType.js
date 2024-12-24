@@ -78,6 +78,12 @@ export const technology = defineType({
       description: 'Category of the tech',
       to: [{type: 'technologyCategory'}],
       validation: (e) => e.required(),
+    }),
+    defineField({
+      type: 'number',
+      name: 'index',
+      title: 'Index',
+      description: 'The index of the technology to sort by'
     })
   ],
 })
