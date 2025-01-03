@@ -35,6 +35,13 @@ export const page = defineType({
       name: 'cover',
       title: 'Cover',
       description: 'The cover image of the page',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+        },
+      ],
     }),
   ],
 })
