@@ -24,8 +24,8 @@ export const postCategory = defineType({
         maxLength: 200, // will be ignored if slugify is set
         slugify: (input) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
       },
-    })
-  ]
+    }),
+  ],
 })
 
 export const post = defineType({
@@ -52,7 +52,7 @@ export const post = defineType({
       type: 'array',
       name: 'categories',
       title: 'Categories',
-      of: [{ type: 'reference', to: { type: 'postCategory' } }],
+      of: [{type: 'reference', to: {type: 'postCategory'}}],
       validation: (e) => e.required(),
     }),
     defineField({

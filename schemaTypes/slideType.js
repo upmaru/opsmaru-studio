@@ -39,6 +39,6 @@ export const slide = defineType({
       title: 'Index',
       description: 'The index of the slide',
       validation: (e) => e.required(),
-    })
-  ]
+    }),
+  ],
 })

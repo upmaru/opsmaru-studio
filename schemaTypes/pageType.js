@@ -22,7 +22,20 @@ export const page = defineType({
       options: {
         isUnique: isUniqueAcrossAllDocuments,
       },
-    })
+    }),
+    defineField({
+      type: 'text',
+      name: 'description',
+      title: 'Description',
+      description: 'Description of the page',
+      validation: (rule) => rule.max(160).warning('Should be less than 160 characters.'),
+    }),
+    defineField({
+      type: 'image',
+      name: 'cover',
+      title: 'Cover',
+      description: 'The cover image of the page',
+    }),
   ],
 })
 
@@ -91,14 +104,14 @@ export const pageContent = defineType({
       name: 'markdown',
       title: 'Markdown',
       description: 'The markdown content of the page',
-      accept: 'text/markdown'
+      accept: 'text/markdown',
     }),
     defineField({
       type: 'date',
       name: 'published_at',
       title: 'Published at',
       description: 'Publish the page at this date',
-    })
+    }),
   ],
 })
 
@@ -175,16 +188,16 @@ export const pageCard = defineType({
           {title: 'Top Right', value: 'top-right'},
           {title: 'Bottom Left', value: 'bottom-left'},
           {title: 'Bottom Center', value: 'bottom-center'},
-          {title: 'Bottom Right', value: 'bottom-right'}
+          {title: 'Bottom Right', value: 'bottom-right'},
         ],
       },
-    })
+    }),
   ],
   preview: {
     select: {
       section: 'pageSection.title',
       card: 'card.title',
-      position: 'position'
+      position: 'position',
     },
     prepare(selection) {
       const {card, position} = selection
